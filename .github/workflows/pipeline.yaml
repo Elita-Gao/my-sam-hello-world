@@ -116,7 +116,7 @@ jobs:
         with:
           use-installer: true
 
-      - name:Run Units Test
+      - name: Run Units Test
         run: |
           pip install -r tests/requirements.txt
           pytest tests/unit 
