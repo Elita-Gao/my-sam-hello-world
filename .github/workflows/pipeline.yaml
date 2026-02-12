@@ -116,6 +116,11 @@ jobs:
         with:
           use-installer: true
 
+      - name:Run Units Test
+        run: |
+          pip install -r tests/requirements.txt
+          pytest tests/unit 
+
       - name: Build resources
         run: sam build --template ${SAM_TEMPLATE} --use-container
 
@@ -198,6 +203,12 @@ jobs:
             --s3-bucket ${TESTING_ARTIFACTS_BUCKET} \
             --no-fail-on-empty-changeset \
             --role-arn ${TESTING_CLOUDFORMATION_EXECUTION_ROLE}
+
+      - name: Run Integration Tests
+        run: |
+          pip install -r tests/requirements.txt
+          export AWS_SAM_STACK_NAME=sam-app
+          pytest tests/integration
 
   integration-test:
     if: github.ref == 'refs/heads/main'
