@@ -116,6 +116,10 @@ jobs:
         with:
           use-installer: true
 
+      - name: Pip Audit
+        run: |
+          pip-audit -r hello-world/requirements.txt
+
       - name: Run Units Test
         run: |
           pip install -r tests/requirements.txt
