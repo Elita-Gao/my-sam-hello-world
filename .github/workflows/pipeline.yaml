@@ -118,7 +118,7 @@ jobs:
 
       - name: Pip Audit
         run: |
-          export PATH=$PATH:$HOME/.local/bin
+          export PATH=/home/elita/.local/bin
           pip-audit -r hello-world/requirements.txt
 
       - name: Run Units Test
