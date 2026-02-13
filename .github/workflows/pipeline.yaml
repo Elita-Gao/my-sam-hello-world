@@ -119,7 +119,7 @@ jobs:
       - name: Pip Audit
         run: |
           pip install pip-audit
-          pip-audit -r hello-world/requirements.txt
+          pip-audit -r hello_world/requirements.txt
 
       - name: Run Units Test
         run: |
