@@ -124,7 +124,7 @@ jobs:
       - name: Lint Code (flake8)
         run: |
           pip install flake8
-          flake8 hello_world
+          flake8 --config=hello_world/.flake8 
 
       - name: Run Units Test
         run: |
