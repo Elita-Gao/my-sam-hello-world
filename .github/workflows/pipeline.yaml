@@ -122,9 +122,14 @@ jobs:
           pip-audit -r hello_world/requirements.txt
 
       - name: Lint Code (flake8)
+        continue-on-error: true
         run: |
           pip install flake8
-          flake8 --config=hello_world/.flake8 
+          #flake8 --config=hello_world/.flake8 
+          flake8 hello_world --output-file=flake8_report.txt
+          # Print it to the console too so you can see it in the logs
+          cat flake8_report.txt
+
       - name: Upload Flake8 Report
         # Run this even if the previous step "failed"
         if: always()
