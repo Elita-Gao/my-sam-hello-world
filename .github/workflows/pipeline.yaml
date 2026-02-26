@@ -125,6 +125,13 @@ jobs:
         run: |
           pip install flake8
           flake8 --config=hello_world/.flake8 
+      - name: Upload Flake8 Report
+        # Run this even if the previous step "failed"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flake8-report
+          path: flake8_report.txt
 
       - name: Run Units Test
         run: |
